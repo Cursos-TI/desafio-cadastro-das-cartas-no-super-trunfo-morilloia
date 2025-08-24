@@ -12,8 +12,8 @@ int main() {
     char codigo[5], codigo2[5];
     char cidade [30], cidade2[30];
     int populacao, populacao2;
-    float area, area2;
-    float pib, pib2;
+    float area, area2, densidade, densidade2;
+    float pib, pib2, percapita, percapita2;
     int pontos, pontos2;
 
     // Cadastro das Cartas:
@@ -71,14 +71,18 @@ int main() {
 
     scanf("%f", &area2);
 
-    printf("Digite o PIB do estado: \n");
+    printf("Digite o PIB do estado: (em bilhões de reais)\n");
 
     scanf("%f", &pib2);
 
     printf("Digite o número de pontos turísticos no estado: \n");
 
     scanf("%d", &pontos2);
-    
+    // Cálculo de Atributos:
+    densidade = (float)populacao / area; // Cálculo da densidade populacional
+    densidade2 = (float)populacao2 / area2;
+    percapita = (float)(pib * 1000000000) / populacao; // Cálculo do PIB per capita (multiplicando por 100000000 para torná-lo um cálculo realista)
+    percapita2 = (float)(pib2 * 1000000000) / populacao2;
 
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
@@ -99,6 +103,10 @@ int main() {
     printf("PIB: %.2f Bilhões de reais \n", pib);
 
     printf("Número de Pontos Turísticos: %d \n", pontos);
+
+    printf("Densidade Populacional: %.2f hab/km² \n", densidade);
+
+    printf("PIB per Capita: %.2f reais \n", percapita);
     // Exibir os dados da segunda carta 
     printf("\n"); // Espaço para separar as cartas
     printf("Carta 2: \n");
@@ -117,6 +125,10 @@ int main() {
     printf("PIB: %.2f Bilhões de reais \n", pib2);
 
     printf("Número de Pontos Turísticos: %d \n", pontos2);
+
+    printf("Densidade Populacional: %.2f hab/km² \n", densidade2);
+
+    printf("PIB per Capita: %.2f reais \n", percapita2);
 
     return 0;
 }
